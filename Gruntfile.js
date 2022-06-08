@@ -13,17 +13,6 @@ module.exports = function(grunt) {
       }
     },
 
-    coffee: {
-      glob_to_multiple: {
-        expand: true,
-        flatten: true,
-        cwd: "spec",
-        src: ['*.coffee'],
-        dest: 'spec/obj',
-        ext: '.js'
-      }
-    },
-
     karma: {
       unit: {
         configFile: 'karma.conf.js'
@@ -43,10 +32,6 @@ module.exports = function(grunt) {
 
 
     clean: {
-      coffee: {
-        options: {force: true},
-        src: ['spec/obj'],
-      },
       release: {
         options: {force: true},
         src: ['../server/public'],
@@ -54,12 +39,11 @@ module.exports = function(grunt) {
     },
   });
 
-  grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-karma');
 
   grunt.registerTask('release', ['clean:release', 'copy:release']);
-  grunt.registerTask('default', ['clean:coffee','coffee', 'jshint','karma']);
+  grunt.registerTask('default', ['jshint','karma']);
 };
