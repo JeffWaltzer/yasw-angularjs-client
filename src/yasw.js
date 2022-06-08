@@ -27,24 +27,4 @@ angular.module('YASW', [])
         '  </text>' +
         '</g>'
     };
-  })
-  .directive('gamepadEditor', function () {
-    return {
-      restrict: 'E',
-      replace: true,
-      template:
-        '<div id="gamepad-editor">' +
-          '<div ng-if="gamepads.length <= 0" id="no-gamepads-text">' +
-            'No Gamepads' +
-          '</div>' +
-          '<div ng-repeat="gamepad in gamepads">' +
-            '<div class="gamepad-name" >' +
-              '{{gamepad.id}}' +
-            '</div>' +
-            '<div class="gamepad-thrust-button" >' +
-              '3' +
-            '</div>' +
-          '</div>' +
-        '</div>'
-    };
   });

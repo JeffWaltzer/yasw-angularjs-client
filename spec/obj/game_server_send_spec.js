@@ -12,7 +12,7 @@
         return it("sends it along to the server", function() {
           spyOn(game_server.web_socket, 'send');
           game_server.send(e);
-          return expect(game_server.web_socket.send).toHaveBeenCalledWith(`{"command":"${e}"}`);
+          return expect(game_server.web_socket.send).toHaveBeenCalledWith(`{\"command\":\"${e}\"}`);
         });
       });
     });
